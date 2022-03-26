@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitjsonnews.R
+import com.example.retrofitjsonnews.presentation.ext.setOnQueryListener
 import com.example.retrofitjsonnews.presentation.recycler.MainAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -30,16 +31,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        searchEditText.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query != null) {
-                    viewModel.searchNews(query)
-                    loadRecycler()
-                }
-                return false
-            }
-            override fun onQueryTextChange(newText: String?): Boolean = false
-        })
+        searchEditText.setOnQueryListener { query ->
+            viewModel.searchNews(query)
+            loadRecycler()
+        }
     }
 
     private fun loadRecycler() {
