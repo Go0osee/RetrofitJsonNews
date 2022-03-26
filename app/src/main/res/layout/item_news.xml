@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootNews"
+    android:layout_width="match_parent"
+    android:layout_height="360dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/background_news"
+    android:elevation="8dp">
+
+    <ImageView
+        android:id="@+id/newsImage"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/newsTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:fontFamily="@font/monda"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newsImage"
+        tools:text="Важная новость" />
+
+    <TextView
+        android:id="@+id/newsDescription"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:fontFamily="@font/monda"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="@color/dark_gray"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/newsAuthor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newsTitleText"
+        tools:text="Описание важной новости" />
+
+    <TextView
+        android:id="@+id/newsAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/monda"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Автор новости" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
