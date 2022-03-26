@@ -5,10 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.bumptech.glide.Glide
 import com.example.retrofitjsonnews.R
-import com.example.retrofitjsonnews.domain.ext.setImageByUrl
+import com.example.retrofitjsonnews.presentation.ext.setImageByUrl
 import com.example.retrofitjsonnews.domain.model.BaseItem
 import com.example.retrofitjsonnews.domain.model.News
 

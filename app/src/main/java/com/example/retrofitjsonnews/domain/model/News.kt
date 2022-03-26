@@ -4,6 +4,6 @@ class News(
     val author: String?,
     val title: String,
     val description: String,
-    val articleUrl: String,
+    val articleUrl: String?,
     val previewUrl: String
 ) : BaseItem()

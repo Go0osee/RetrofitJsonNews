@@ -1,11 +1,8 @@
 package com.example.retrofitjsonnews.domain.ext
 
-import android.view.View
-import android.widget.ImageView
-import com.bumptech.glide.Glide
+import java.text.SimpleDateFormat
 
-fun ImageView.setImageByUrl(itemView: View, Url: String?){
-    Glide.with(itemView.context)
-        .load(Url)
-        .into(this)
-}
+fun String.toDate(pattern: String): String =
+    SimpleDateFormat("dd.MM.yyyy")
+        .format(SimpleDateFormat("yyyy-MM-dd")
+            .parse(this))

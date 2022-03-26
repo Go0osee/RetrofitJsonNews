@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         searchEditText.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
-                    search(query)
-                    loudRecycler()
+                    viewModel.searchNews(query)
+                    loadRecycler()
                 }
                 return false
             }
@@ -42,17 +42,13 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun loudRecycler() {
+    private fun loadRecycler() {
         recycler.adapter = adapter
 
         viewModel.news.observe(this) { items ->
             adapter.submitList(items.news)
 
-            numberOfResult.text = getString(R.string.countOfNews) + items.count
+            numberOfResult.text = getString(R.string.countOfNews, items.count)
         }
-    }
-
-    private fun search(searchWord: String) {
-        viewModel.searchNews(searchWord)
     }
 }

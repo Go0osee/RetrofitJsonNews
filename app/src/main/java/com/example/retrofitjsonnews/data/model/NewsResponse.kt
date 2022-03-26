@@ -13,19 +13,19 @@ data class NewsResponse(
 
 data class Article(
     @SerializedName("source")
-    val source: Source,
+    val source: Source?,
     @SerializedName("author")
     val author: String?,
     @SerializedName("title")
-    val title: String,
+    val title: String?,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("url")
-    val articleUrl: String,
+    val articleUrl: String?,
     @SerializedName("urlToImage")
     val previewUrl: String?,
     @SerializedName("publishedAt")
-    val publishedAt: String,
+    val publishedAt: String?,
     @SerializedName("content")
     val content: String?
 )
