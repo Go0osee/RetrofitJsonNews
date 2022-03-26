@@ -4,10 +4,10 @@ import com.example.retrofitjsonnews.data.model.NewsResponse
 import com.example.retrofitjsonnews.domain.model.BaseItem
 import com.example.retrofitjsonnews.domain.model.Date
 import com.example.retrofitjsonnews.domain.model.News
-import com.example.retrofitjsonnews.domain.model.NewsAndCount
+import com.example.retrofitjsonnews.domain.model.NewsWrapper
 
 
-fun NewsResponse.toNewsAndCount(): NewsAndCount {
+fun NewsResponse.toNewsAndCount(): NewsWrapper {
 
     val items = mutableListOf<BaseItem>()
 
@@ -29,7 +29,7 @@ fun NewsResponse.toNewsAndCount(): NewsAndCount {
     }
     val count = this.resultsNumber.toString()
 
-    return NewsAndCount(count, items)
+    return NewsWrapper(count, items)
 }
 
 fun String.toDate(): String {

@@ -1,6 +1,6 @@
 package com.example.retrofitjsonnews.domain.model
 
-class NewsAndCount(
+class NewsWrapper(
     val count: String,
     val news: List<BaseItem>
 )

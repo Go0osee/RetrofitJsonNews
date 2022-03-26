@@ -5,13 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.retrofitjsonnews.domain.NewsInteractor
-import com.example.retrofitjsonnews.domain.model.BaseItem
-import com.example.retrofitjsonnews.domain.model.NewsAndCount
+import com.example.retrofitjsonnews.domain.model.NewsWrapper
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val newsInteractor: NewsInteractor) : ViewModel() {
-    private val _news = MutableLiveData<NewsAndCount>()
-    val news: LiveData<NewsAndCount> get() = _news
+    private val _news = MutableLiveData<NewsWrapper>()
+    val news: LiveData<NewsWrapper> get() = _news
 
     fun searchNews(searchWord: String) {
         loadNews(searchWord)
