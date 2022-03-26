@@ -26,36 +26,33 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
+        initViews()
+    }
+
+    private fun initViews() {
         searchEditText.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
                     search(query)
-                    initViews()
+                    loudRecycler()
                 }
                 return false
             }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-//                if (newText != null) {
-//                    search(newText)
-//                    initViews()
-//                }
-                return false
-            }
+            override fun onQueryTextChange(newText: String?): Boolean = false
         })
     }
 
-    fun initViews() {
+    private fun loudRecycler() {
         recycler.adapter = adapter
 
         viewModel.news.observe(this) { items ->
             adapter.submitList(items.news)
 
-            numberOfResult.text = "Количество результатов: " + items.count
+            numberOfResult.text = getString(R.string.countOfNews) + items.count
         }
     }
 
-    fun search(searchWord: String) {
+    private fun search(searchWord: String) {
         viewModel.searchNews(searchWord)
     }
 }

@@ -1,4 +1,3 @@
 package com.example.retrofitjsonnews.domain.model
 
-abstract class BaseItem {
-}
+abstract class BaseItem

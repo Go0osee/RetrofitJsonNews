@@ -17,11 +17,11 @@ data class Article(
     @SerializedName("author")
     val author: String?,
     @SerializedName("title")
-    val title: String?,
+    val title: String,
     @SerializedName("description")
-    val description: String?,
+    val description: String,
     @SerializedName("url")
-    val articleUrl: String?,
+    val articleUrl: String,
     @SerializedName("urlToImage")
     val previewUrl: String?,
     @SerializedName("publishedAt")
