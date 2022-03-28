@@ -11,12 +11,12 @@ fun ImageView.setImageByUrl(itemView: View, Url: String?) {
         .into(this)
 }
 
-fun SearchView.setOnQueryListener(action: (String) -> Unit) {
+fun SearchView.setOnQueryListener(action: (String) -> Boolean) {
     this.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
         override fun onQueryTextSubmit(query: String?): Boolean {
             if (query != null) {
-                action(query)
+                return action(query)
             }
             return false
         }

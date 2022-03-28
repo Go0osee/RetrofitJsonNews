@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         searchEditText.setOnQueryListener { query ->
             viewModel.searchNews(query)
             loadRecycler()
+            return@setOnQueryListener false
         }
     }
 
