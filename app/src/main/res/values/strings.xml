@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RetrofitJsonNews</string>
+    <string name="countOfNews">Количество результатов: %s</string>
 </resources>
