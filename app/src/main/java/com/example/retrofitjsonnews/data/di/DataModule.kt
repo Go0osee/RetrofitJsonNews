@@ -1,10 +1,15 @@
 package com.example.retrofitjsonnews.data.di
 
+import com.example.retrofitjsonnews.data.NewsApi
 import com.example.retrofitjsonnews.data.RetrofitClient
-import org.koin.dsl.module
+import dagger.Module
+import dagger.Provides
 
-val dataModule = module {
-    single {
-        RetrofitClient.getNewsApi()
+@Module
+class DataModule {
+
+    @Provides
+    fun provideNewsApi(): NewsApi {
+        return RetrofitClient.getNewsApi()
     }
 }
