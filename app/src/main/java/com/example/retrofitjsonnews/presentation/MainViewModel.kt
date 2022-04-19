@@ -7,8 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.retrofitjsonnews.domain.NewsInteractor
 import com.example.retrofitjsonnews.domain.model.NewsWrapper
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(private val newsInteractor: NewsInteractor) : ViewModel() {
+class MainViewModel @Inject constructor(private val newsInteractor: NewsInteractor) : ViewModel() {
     private val _news = MutableLiveData<NewsWrapper>()
     val news: LiveData<NewsWrapper> get() = _news
 

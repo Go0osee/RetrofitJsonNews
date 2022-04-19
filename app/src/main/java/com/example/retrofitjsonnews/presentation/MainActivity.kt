@@ -5,14 +5,17 @@ import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.retrofitjsonnews.NewsApplication
 import com.example.retrofitjsonnews.R
 import com.example.retrofitjsonnews.presentation.ext.setOnQueryListener
 import com.example.retrofitjsonnews.presentation.recycler.MainAdapter
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: MainViewModel by viewModel()
+    @Inject
+    lateinit var viewModel: MainViewModel
+
     private val adapter by lazy { MainAdapter() }
 
     private val recycler by lazy { findViewById<RecyclerView>(R.id.recycler) }
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        NewsApplication.appComponent?.inject(this)
         setContentView(R.layout.activity_main)
     }
 

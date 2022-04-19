@@ -1,22 +1,27 @@
 package com.example.retrofitjsonnews.domain.di
 
+import com.example.retrofitjsonnews.data.NewsApi
 import com.example.retrofitjsonnews.data.NewsRepositoryImpl
-import com.example.retrofitjsonnews.data.RetrofitClient
 import com.example.retrofitjsonnews.domain.NewsInteractor
 import com.example.retrofitjsonnews.domain.NewsInteractorImpl
 import com.example.retrofitjsonnews.domain.NewsRepository
-import org.koin.dsl.module
+import dagger.Module
+import dagger.Provides
 
-val modelModule = module {
-    single<NewsInteractor> {
-        NewsInteractorImpl(
-            get()
-        )
+@Module
+class DomainModule {
+
+    @Provides
+    fun provideNewsInteractor(
+        repository: NewsRepository
+    ): NewsInteractor {
+        return NewsInteractorImpl(repository)
     }
 
-    single<NewsRepository> {
-        NewsRepositoryImpl(
-            RetrofitClient.getNewsApi()
-        )
+    @Provides
+    fun provideNewsRepository(
+        newsApi: NewsApi
+    ): NewsRepository {
+        return NewsRepositoryImpl(newsApi)
     }
 }

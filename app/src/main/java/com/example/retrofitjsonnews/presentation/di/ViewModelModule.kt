@@ -1,13 +1,17 @@
 package com.example.retrofitjsonnews.presentation.di
 
+import com.example.retrofitjsonnews.domain.NewsInteractor
 import com.example.retrofitjsonnews.presentation.MainViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import dagger.Module
+import dagger.Provides
 
-val viewModelModule = module {
-    viewModel() {
-        MainViewModel(
-            get()
-        )
+@Module
+class ViewModelModule {
+
+    @Provides
+    fun provideMainViewModel(
+        interactor: NewsInteractor
+    ): MainViewModel{
+        return MainViewModel(interactor)
     }
 }
